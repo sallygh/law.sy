@@ -26,7 +26,7 @@
         <a href="{{ route('cases.create') }}" class="btn btn-primary btn-custom">إدخال قضية</a>
         <a href="{{ route('cases.index') }}" class="btn btn-secondary btn-custom">تصفح القضايا</a>
         <a href="{{ route('clients.create') }}" class="btn btn-success btn-custom">إدخال الموكل</a>
-        <a href="#" class="btn btn-danger btn-custom">تصفح الموكلين</a>
+        <a href="{{ route('clients.index') }}" class="btn btn-danger btn-custom">تصفح الموكلين</a>
         <a href="#" class="btn btn-warning btn-custom">إضافة مهام</a>
         <a href="#" class="btn btn-info btn-custom">بحث</a>
     </div>

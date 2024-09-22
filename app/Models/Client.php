@@ -2,12 +2,18 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Client extends Model
 {
-    use HasFactory;
+    protected $fillable = [
+        'full_name',
+        'phone_number',
+        // أضف أي أعمدة أخرى تريد السماح بالتعيين الجماعي لها
+    ];
 
-    protected $fillable = ['full_name', 'phone_number'];
+    public function legalCases()
+    {
+        return $this->hasMany(LegalCase::class, 'plaintiff_name', 'full_name');
+    }
 }

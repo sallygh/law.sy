@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('case_number');
             $table->string('case_type');
+            $table->string('case_subject')->nullable();
             $table->string('plaintiff_name');
             $table->string('defendant_name');
             $table->timestamps();
@@ -28,5 +29,6 @@ return new class extends Migration
     public function down(): void
     {
         Schema::dropIfExists('legal_cases');
+        
     }
 };

@@ -4,9 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Client;
-use Illuminate\Routing\Controller as BaseController;
+use Illuminate\Routing\Controller; 
 
-class ClientController extends BaseController
+class ClientController extends Controller
 {
     // عرض صفحة إدخال الموكلين
     public function create()
@@ -14,13 +14,14 @@ class ClientController extends BaseController
         return view('clients.create');
     }
 
-    // تخزين البيانات المستلمة من الفورم
+    // تخزين بيانات الموكل الجديد
     public function store(Request $request)
     {
         // التحقق من صحة البيانات
         $validatedData = $request->validate([
-            'full_name' => 'required|string|max:255',
-            'phone_number' => 'required|string|max:15',
+            'full_name' => 'required|unique:clients,full_name',
+            'phone_number'=>'required',
+            // أضف المزيد من حقول التحقق هنا إذا لزم الأمر
         ]);
 
         // إنشاء سجل جديد في قاعدة البيانات

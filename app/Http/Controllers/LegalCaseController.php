@@ -28,14 +28,17 @@ class LegalCaseController extends BaseController
         $validatedData = $request->validate([
             'case_number' => 'required',
             'case_type' => 'required',
+            'case_subject' => 'required',
             'plaintiff_name' => 'required',
             'defendant_name' => 'required',
+           
         ]);
 
         // إنشاء سجل جديد في قاعدة البيانات
         $legalCase = new LegalCase();
         $legalCase->case_number = $request->case_number;
         $legalCase->case_type = $request->case_type;
+        $legalCase->case_subject = $request->case_subject;
         $legalCase->plaintiff_name = $request->plaintiff_name;
         $legalCase->defendant_name = $request->defendant_name;
         $legalCase->save();
